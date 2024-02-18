@@ -1,21 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Button, Text, View } from "react-native";
 import React from "react";
+import { globalStyles } from "../styles/global";
 
-export default function Home() {
+export default function Home({ navigation }) {
+  function pressHander() {
+    navigation.navigate("Details");
+  }
   return (
-    <View style={styles.container}>
-      <Text style={styles.titleText}>Home Screen</Text>
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.titleText}>Home Screen</Text>
+      <Button title="Checkout Reviews" onPress={pressHander} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 25,
-    marginTop: 20,
-  },
-  titleText: {
-    fontFamily: "Monsterrat-Bold",
-    fontSize: 18,
-  },
-});

@@ -4,7 +4,7 @@ export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 25,
-    marginTop: 20,
+    marginTop: 5,
   },
   titleText: {
     fontFamily: "Monsterrat-Bold",
