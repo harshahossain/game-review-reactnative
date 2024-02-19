@@ -13,6 +13,7 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     "Monsterrat-Regular": require("./assets/fonts/Montserrat-Regular.ttf"),
     "Monsterrat-Bold": require("./assets/fonts/Montserrat-Bold.ttf"),
+    "Monsterrat-Italic": require("./assets/fonts/Montserrat-Italic.ttf"),
   });
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {

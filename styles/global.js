@@ -15,4 +15,14 @@ export const globalStyles = StyleSheet.create({
     marginVertical: 8,
     lineHeight: 20,
   },
+  scoreText: {
+    fontFamily: "Monsterrat-Bold",
+    fontSize: 18,
+    color: "#D14710",
+  },
+  subtitleText: {
+    fontFamily: "Monsterrat-Italic",
+    fontSize: 15,
+    color: "#302A28",
+  },
 });

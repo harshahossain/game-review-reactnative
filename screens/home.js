@@ -1,4 +1,11 @@
-import { StyleSheet, Button, Text, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import React, { useState } from "react";
 import { globalStyles } from "../styles/global";
 
@@ -10,6 +17,7 @@ export default function Home({ navigation }) {
       rating: 5,
       body: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
       id: "1",
+      img: "https://wallpapercave.com/wp/wp7527718.jpg",
     },
     {
       game: "Palworld",
@@ -35,14 +43,42 @@ export default function Home({ navigation }) {
   ]);
 
   ////////////////////////
-  function pressHander() {
-    navigation.navigate("Details");
-    //navigation.push("Details");
-  }
+  // function pressHander() {
+  //   navigation.navigate("Details");
+  //   //navigation.push("Details");
+  // }
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>Home Screen</Text>
-      <Button title="Checkout Reviews" onPress={pressHander} />
+      <FlatList
+        data={reviews}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Details", item)}
+          >
+            <Text style={globalStyles.titleText}>{item.title}</Text>
+          </TouchableOpacity>
+        )}
+      />
     </View>
   );
 }
+
+// export const styles = StyleSheet.create({
+//   img: {
+//     width: "100%",
+//     height: 120,
+//   },
+// });
+
+// {item.img && (
+//   <Image
+//     style={styles.img}
+//     source={{
+//       uri: item.img,
+//       cache: "force-cache",
+//       cacheKey: "my-image",
+//       immutable: true,
+//     }}
+//   />
+// )}
